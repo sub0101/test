@@ -1,0 +1,23 @@
+{
+  "name": "testops",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "chai": "^5.2.0",
+    "chromedriver": "^134.0.3",
+    "mocha": "^11.1.0",
+    "selenium-webdriver": "^4.29.0"
+  },
+  "dependencies": {
+    "k6": "^0.0.0",
+    "mochawesome": "^7.1.3"
+  }
+}

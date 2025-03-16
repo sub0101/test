@@ -1,0 +1,157 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-16T14:23:05.078Z",
+    "end": "2025-03-16T14:23:14.542Z",
+    "duration": 9464,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "787b24ca-2e18-4f0b-b598-b2f27f97d2e1",
+      "title": "",
+      "fullFile": "/home/jrvis/Documents/testOps/test/GetStartedFrom.test.js",
+      "file": "/test/GetStartedFrom.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0c312c3f-9b32-4975-88dd-35c2e4f76ac8",
+          "title": "Get Started Form Test",
+          "fullFile": "/home/jrvis/Documents/testOps/test/GetStartedFrom.test.js",
+          "file": "/test/GetStartedFrom.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Get Started Form Test\"",
+              "fullTitle": "Get Started Form Test \"before all\" hook in \"Get Started Form Test\"",
+              "timedOut": false,
+              "duration": 5464,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser(\"chrome\").build();\nawait driver.get(\"https://www.xenonstack.com\");  // Open the website",
+              "err": {},
+              "uuid": "9e51d0c0-5ebf-4bb0-9341-cc437fa07043",
+              "parentUUID": "0c312c3f-9b32-4975-88dd-35c2e4f76ac8",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Get Started Form Test\"",
+              "fullTitle": "Get Started Form Test \"after all\" hook in \"Get Started Form Test\"",
+              "timedOut": false,
+              "duration": 68,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "38f5b2d7-1934-4ad2-b5be-fb05286bc742",
+              "parentUUID": "0c312c3f-9b32-4975-88dd-35c2e4f76ac8",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Should open the form after clicking 'Get Started'",
+              "fullTitle": "Get Started Form Test Should open the form after clicking 'Get Started'",
+              "timedOut": false,
+              "duration": 449,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.manage().window().setRect({ width: 1920, height: 1080 });\nconst getStartedButton = await driver.findElement(By.css(\".nav-button\"));\nawait getStartedButton.click();\n// Wait for form to appear\nconst form = await driver.wait(until.elementLocated(By.id(\"form-step-one\")));\nexpect(await form.isDisplayed()).to.be.true;",
+              "err": {},
+              "uuid": "9afa296e-3959-46c7-801d-0f8dd20f6d6e",
+              "parentUUID": "0c312c3f-9b32-4975-88dd-35c2e4f76ac8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should show an error for invalid email and phone",
+              "fullTitle": "Get Started Form Test Should show an error for invalid email and phone",
+              "timedOut": false,
+              "duration": 3475,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(0);\n// Invalid input data\nconst invalidFields = [\n    { id: \"Firstname\", value: \"John@\" ,errorField :\"firstname-error\" },\n    { id: \"Lastname\", value: \"Doe@\",errorField:\"lastname-error\" },\n    { id: \"emailid\", value: \"invalidemailgmail.com\",errorField:\"email-error\" }, // Invalid email\n    { id: \"contactnumber\", value: \"12456783\" ,errorField:\"contact-error\"}, // Invalid phone number\n    { id: \"companyname\", value: \"XenonStack@\" , errorField:\"company-error\" }\n];\nfor (const field of invalidFields) {\n    const input = await driver.findElement(By.id(field.id));\n    await input.clear();\n    await input.sendKeys(field.value);\n    await input.sendKeys(Key.TAB);\n    // Small delay to allow validation to trigger\n    await driver.sleep(500);\n\n    const error = await driver.wait(\n        until.elementLocated(By.id(field.errorField)),\n        5000 // Timeout of 5 seconds\n    );\n    console.log(await error.getAttribute(\"id\"));\n    expect(await error.isDisplayed()).to.be.true;\n}\n// Click 'Proceed Next'\n// const proceedButton = await driver.findElement(By.xpath(\"//div[@class='next-step-button']\"));\n// await proceedButton.click();\n// Verify error messages\n// expect(await emailError.isDisplayed()).to.be.true;\n// expect(await phoneError.isDisplayed()).to.be.true;\nconst industrySelect = await driver.findElement(By.id(\"enterpriseIndustry\"));\nawait industrySelect.sendKeys(\"Software Development\");\n// Click 'Proceed Next'\nconst proceedButton = await driver.findElement(By.xpath(\"//div[@class='next-step-button']\"));\nawait proceedButton.click();\n// Check if an error appears (optional)\nconst errorMessage = await driver.findElement(By.id(\"error-message-one\"));\n// expect(await errorMessage.isDisplayed()).to.be.true;",
+              "err": {},
+              "uuid": "eb209f4b-71da-4109-b6b9-16b4adf25c83",
+              "parentUUID": "0c312c3f-9b32-4975-88dd-35c2e4f76ac8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9afa296e-3959-46c7-801d-0f8dd20f6d6e",
+            "eb209f4b-71da-4109-b6b9-16b4adf25c83"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3924,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
