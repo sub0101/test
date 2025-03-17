@@ -1,9 +1,9 @@
-import { Builder, By } from "selenium-webdriver";
-import { assert } from "chai";
 
 
+const {Builder  ,By} = require("selenium-webdriver")
+const {assert} = require("chai")
     describe("Responsive Design Test", function () {
-        let driver;
+        let driver =new Builder();
       this.timeout(0)
       
         before(async function () {
@@ -14,9 +14,10 @@ import { assert } from "chai";
           await driver.quit();
         });
       
-        it("✅ Desktop View - Navigation Bar Should Be Visible", async function () {
+        it(" Desktop View - Navigation Bar Should Be Visible", async function () {
           await driver.manage().window().setRect({ width: 1920, height: 1080 });
           await driver.get("https://www.xenonstack.com");
+          
       
           const navBar = await driver.findElement(By.css("nav"));
           const isDisplayed = await navBar.isDisplayed();
@@ -24,7 +25,7 @@ import { assert } from "chai";
           assert.isTrue(isDisplayed, "Navigation bar is missing in full-screen mode");
         });
       
-        it("✅ Tablet View - Hamburger Menu Should Be Visible", async function () {
+        it(" Tablet View - Hamburger Menu Should Be Visible", async function () {
           await driver.manage().window().setRect({ width: 768, height: 1024 });
       
           const menuRight = await driver.findElement(By.css(".mobile-right"));
@@ -33,7 +34,7 @@ import { assert } from "chai";
           assert.isTrue(isDisplayed, "Hamburger menu is missing in tablet mode");
         });
       
-        it("✅ Mobile View - Hamburger Menu Should Be Visible", async function () {
+        it(" Mobile View - Hamburger Menu Should Be Visible", async function () {
           await driver.manage().window().setRect({ width: 375, height: 812 });
       
           const menuRight = await driver.findElement(By.css(".mobile-right"));

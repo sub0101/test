@@ -1,16 +1,24 @@
-import http from 'k6/http';
-import { check, sleep } from 'k6';
-
-export let options = {
-    vus: 10, // Simulating 10 users
-    duration: '30s', // Run test for 30 seconds
+// import http from 'k6/http';
+// import { sleep } from 'k6';
+const http  = require("k6/http")
+const {sleep}  = require("k6")
+export const options = {
+  // Key configurations for Stress in this section
+  stages: [
+    { duration: '5s', target: 50 }, // traffic ramp-up from 1 to a higher 200 users over 10 minutes.
+    { duration: '10s', target: 50 }, // stay at higher 200 users for 30 minutes
+    { duration: '10s', target: 0 }, // ramp-down to 0 users
+  ],
 };
 
-export default function () {
-    let res = http.get('https://www.xenonstack.com');
-    check(res, {
-        'status is 200': (r) => r.status === 200,
-        'response time < 2s': (r) => r.timings.duration < 2000,
-    });
-    sleep(1);
-}
+export default () => {
+  const urlRes = http.get('https://xenonstack.com');
+
+
+  sleep(1);
+  // MORE STEPS
+  // Here you can have more steps or complex script
+  // Step1
+  // Step2
+  // etc.
+};

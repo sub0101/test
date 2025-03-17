@@ -1,0 +1,214 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-17T12:13:24.845Z",
+    "end": "2025-03-17T12:14:35.820Z",
+    "duration": 70975,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "79e4e349-3a12-4139-b4b4-8eaa5df376a2",
+      "title": "",
+      "fullFile": "/Users/xs523-sursin/Documents/testing/tests/ResponsiveDesign.test.js",
+      "file": "/ResponsiveDesign.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "64ee2b0f-050d-46d9-9f90-4e9fdd5743ba",
+          "title": "Responsive Design Test",
+          "fullFile": "/Users/xs523-sursin/Documents/testing/tests/ResponsiveDesign.test.js",
+          "file": "/ResponsiveDesign.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Responsive Design Test\"",
+              "fullTitle": "Responsive Design Test \"before all\" hook in \"Responsive Design Test\"",
+              "timedOut": false,
+              "duration": 1242,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser(\"chrome\").build();",
+              "err": {},
+              "uuid": "cd88c7b2-1c06-43b0-af4e-09d37aeb85d0",
+              "parentUUID": "64ee2b0f-050d-46d9-9f90-4e9fdd5743ba",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Responsive Design Test\"",
+              "fullTitle": "Responsive Design Test \"after all\" hook in \"Responsive Design Test\"",
+              "timedOut": false,
+              "duration": 57,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "9f180ccd-e972-4f8b-afe2-7d81230b6854",
+              "parentUUID": "64ee2b0f-050d-46d9-9f90-4e9fdd5743ba",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "✅ Desktop View - Navigation Bar Should Be Visible",
+              "fullTitle": "Responsive Design Test ✅ Desktop View - Navigation Bar Should Be Visible",
+              "timedOut": false,
+              "duration": 67732,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.manage().window().setRect({ width: 1920, height: 1080 });\nawait driver.get(\"https://www.xenonstack.com\");\n\n      \nconst navBar = await driver.findElement(By.css(\"nav\"));\nconst isDisplayed = await navBar.isDisplayed();\n      \nassert.isTrue(isDisplayed, \"Navigation bar is missing in full-screen mode\");",
+              "err": {},
+              "uuid": "bf28e0bc-2d68-4db7-9df6-647576e94248",
+              "parentUUID": "64ee2b0f-050d-46d9-9f90-4e9fdd5743ba",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "✅ Tablet View - Hamburger Menu Should Be Visible",
+              "fullTitle": "Responsive Design Test ✅ Tablet View - Hamburger Menu Should Be Visible",
+              "timedOut": false,
+              "duration": 434,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.manage().window().setRect({ width: 768, height: 1024 });\n      \nconst menuRight = await driver.findElement(By.css(\".mobile-right\"));\nconst isDisplayed = await menuRight.isDisplayed();\n      \nassert.isTrue(isDisplayed, \"Hamburger menu is missing in tablet mode\");",
+              "err": {},
+              "uuid": "2440f3c9-3df3-4639-aeec-33a972c8d97b",
+              "parentUUID": "64ee2b0f-050d-46d9-9f90-4e9fdd5743ba",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "✅ Mobile View - Hamburger Menu Should Be Visible",
+              "fullTitle": "Responsive Design Test ✅ Mobile View - Hamburger Menu Should Be Visible",
+              "timedOut": false,
+              "duration": 363,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.manage().window().setRect({ width: 375, height: 812 });\n      \nconst menuRight = await driver.findElement(By.css(\".mobile-right\"));\nconst isDisplayed = await menuRight.isDisplayed();\n      \nassert.isTrue(isDisplayed, \"Hamburger menu is missing in mobile mode\");",
+              "err": {},
+              "uuid": "81ebb610-b8b8-4f4b-96c7-61612a8b4cb9",
+              "parentUUID": "64ee2b0f-050d-46d9-9f90-4e9fdd5743ba",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "✅ Should verify that no images overlap",
+              "fullTitle": "Responsive Design Test ✅ Should verify that no images overlap",
+              "timedOut": false,
+              "duration": 250,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const images = await driver.findElements(By.css(\"img\"));\nconst imageRects = [];\n    \nfor (const img of images) {\n    const rect = await driver.executeScript(\n        \"return arguments[0].getBoundingClientRect();\",\n        img\n    );\n    imageRects.push(rect);\n}\n    \nfor (let i = 0; i < imageRects.length; i++) {\n    for (let j = i + 1; j < imageRects.length; j++) {\n        assert.isFalse(\n            isOverlapping(imageRects[i], imageRects[j]),\n            `Image ${i} is overlapping with Image ${j}`\n        );\n    }\n}",
+              "err": {},
+              "uuid": "8dd169f9-e35c-4944-9b1e-03613d936a67",
+              "parentUUID": "64ee2b0f-050d-46d9-9f90-4e9fdd5743ba",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "✅ Should verify that text is not overlapping",
+              "fullTitle": "Responsive Design Test ✅ Should verify that text is not overlapping",
+              "timedOut": false,
+              "duration": 893,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const texts = await driver.findElements(By.css(\"p, h1, h2, h3, h4, h5, h6\"));\nconst textRects = [];\n    \nfor (const text of texts) {\n    const rect = await driver.executeScript(\n        \"return arguments[0].getBoundingClientRect();\",\n        text\n    );\n    textRects.push(rect);\n}\n    \nfor (let i = 0; i < textRects.length; i++) {\n    for (let j = i + 1; j < textRects.length; j++) {\n        assert.isFalse(\n            isOverlapping(textRects[i], textRects[j]),\n            `Text block ${i} is overlapping with Text block ${j}`\n        );\n    }\n}",
+              "err": {},
+              "uuid": "32e76a6a-7444-4abd-b534-bccb4e53fec2",
+              "parentUUID": "64ee2b0f-050d-46d9-9f90-4e9fdd5743ba",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bf28e0bc-2d68-4db7-9df6-647576e94248",
+            "2440f3c9-3df3-4639-aeec-33a972c8d97b",
+            "81ebb610-b8b8-4f4b-96c7-61612a8b4cb9",
+            "8dd169f9-e35c-4944-9b1e-03613d936a67",
+            "32e76a6a-7444-4abd-b534-bccb4e53fec2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 69672,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
